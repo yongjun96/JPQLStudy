@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.2"
+             xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
+    <persistence-unit name="jpa">
+        <class>jpa.study.jpqlstudy.domain.Member</class>
+        <class>jpa.study.jpqlstudy.domain.Team</class>
+        <class>jpa.study.jpqlstudy.domain.Order</class>
+        <class>jpa.study.jpqlstudy.domain.Product</class>
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+            <property name="javax.persistence.jdbc.user" value="sa"/>
+            <property name="javax.persistence.jdbc.password" value=""/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/~/jpqlStudy"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+            <!--<property name="hibernate.dialect" value="org.hibernate.dialect.OracleDialect"/>-->
+
+            <property name="hibernate.show_sql" value="true"/> <!--옵션 적용 시, Hibernate의 쿼리가 보임-->
+            <property name="hibernate.format_sql" value="true"/>  <!--옵션 적용 시, 보기편하게 해줌-->
+            <property name="hibernate.use_sql_comments" value="true"/> <!--옵션 적용 시, 쿼리의 명령 내용이 보임 -->
+            <property name="hibernate.jdbc.batch_size" value="10"/> <!--value의 size만큼 모아서 한방에 네트워크로 보내고 DB에 commit함 -->
+            <property name="hibernate.hbm2ddl.auto" value="create" />
+        </properties>
+
+
+        <!--<properties>
+            &lt;!&ndash; 필수 속성 &ndash;&gt;
+            <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"/>
+            <property name="javax.persistence.jdbc.user" value="sa"/>
+            <property name="javax.persistence.jdbc.password" value=""/>
+            <property name="javax.persistence.jdbc.url" value="jdbc:h2:tcp://localhost/~/test"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.H2Dialect"/>
+            &lt;!&ndash;<property name="hibernate.dialect" value="org.hibernate.dialect.OracleDialect"/>&ndash;&gt;
+            &lt;!&ndash; 옵션 &ndash;&gt;
+            <property name="hibernate.show_sql" value="true"/> &lt;!&ndash; 옵션 적용 시, Hibernate의 쿼리가 보임 &ndash;&gt;
+            <property name="hibernate.format_sql" value="true"/> &lt;!&ndash; 옵션 적용 시, 보기편하게 해줌 &ndash;&gt;
+            <property name="hibernate.use_sql_comments" value="true"/> &lt;!&ndash; 옵션 적용 시, 쿼리의 명령 내용이 보임 &ndash;&gt;
+            <property name="hibernate.jdbc.batch_size" value="10"/> &lt;!&ndash; value의 size만큼 모아서 한방에 네트워크로 보내고 DB에 commit함 &ndash;&gt;
+            <property name="hibernate.hbm2ddl.auto" value="create" />
+        </properties>-->
+    </persistence-unit>
+
+</persistence>
