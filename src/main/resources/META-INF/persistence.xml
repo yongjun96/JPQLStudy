@@ -20,6 +20,7 @@
             <property name="hibernate.use_sql_comments" value="true"/> <!--옵션 적용 시, 쿼리의 명령 내용이 보임 -->
             <property name="hibernate.jdbc.batch_size" value="10"/> <!--value의 size만큼 모아서 한방에 네트워크로 보내고 DB에 commit함 -->
             <property name="hibernate.hbm2ddl.auto" value="create" />
+            <property name="hibernate.default_batch_fetch_size" value="100"/>
         </properties>
 
 

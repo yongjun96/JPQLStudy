@@ -7,6 +7,7 @@ import lombok.Setter;
 @Entity
 @Setter
 @Getter
+@NamedQuery(name = "Member.namedQuery", query = "select m from Member m where m.username =: username")
 public class Member {
 
     @Id @GeneratedValue

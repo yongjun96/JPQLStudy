@@ -22,6 +22,7 @@ public class JpqlMain {
         try {
 
             List<Team> teamList = new ArrayList<>();
+            List<Member> memberList = new ArrayList<>();
 
             for (int i = 1; i <= 4; i++) {
 
@@ -57,6 +58,7 @@ public class JpqlMain {
                 order.setProduct(product);
                 em.persist(product);
 
+                memberList.add(member);
                 em.persist(member);
             }
 
@@ -77,16 +79,28 @@ public class JpqlMain {
             //String query = "select locate('용', '김아무개용준') from Member m"; //해당 문자가 있는 순번 출력
             //String query = "select size(t.members) from Team t"; // 컬렉션의 크기를 반환
 
-            em.flush();
+
+            /*
+            String query = "Member.namedQuery";
+            List<Member> memberQuery = em.createNamedQuery("Member.namedQuery", Member.class)
+                    .setParameter("username", memberList.get(0).getUsername())
+                    .getResultList();
+            */
+
+            String query = "update Member m set m.age = 20";
+
+            int resultCount = em.createQuery("update Member m set m.age = 50 where m.id = 1").executeUpdate();
+
             em.clear();
+            Member mem = em.find(Member.class, memberList.get(0).getId());
 
-            String query = "select m from Member m join fetch m.team";
-            List<Member> memberList = em.createQuery(query).getResultList();
+            System.out.println(mem.getAge());
 
-            for (Member o : memberList) {
-                System.out.println(o+o.getTeam().toString());
-            }
+            System.out.println(memberList.get(0).getAge());
+            System.out.println(memberList.get(2).getAge());
+            System.out.println(memberList.get(2).getAge());
 
+            System.out.println("member : "+resultCount);
 
             et.commit();
 
